@@ -26,9 +26,6 @@ grade_model = student_grades_namespace.model('Grade', grade_model_field)
 
 
 
-
- 
-
 @student_grades_namespace.route('/grades')
 class GetAddUpdateGrades(Resource):
 

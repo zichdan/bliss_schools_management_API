@@ -16,8 +16,7 @@ student_namespace = Namespace('students', description='Namespace for Students')
 
 
 student_signup_model = student_namespace.model('StudentSignUp', student_signup_field)
-student_update_model = student_namespace.model('StudentUpdate',student_update_field)
-
+student_update_model = student_namespace.model('StudentUpdate', student_update_field)
 student_marsharl_model = student_namespace.model('StudentMarshal', student_retrieve_field)
 
 
@@ -104,8 +103,7 @@ class GetUpdateDeleteStudents(Resource):
     
     
     
-    @student_namespace.expect(student_update_field)
-    # @student_namespace.marshal_with(student_model)
+    @student_namespace.expect(student_update_model)
     @student_namespace.doc(
         description="Update a student's details by ID",
         params = {
@@ -184,6 +182,7 @@ class GetStudentCourses(Resource):
         # if is_student_or_admin(student_id):
             
         courses = StudentCourse.get_student_courses(student_id)
+        
         resp = []
 
         for course in courses:

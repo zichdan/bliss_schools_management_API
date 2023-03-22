@@ -27,5 +27,5 @@ all_users_fields_serializer = {
         'created_at': fields.String(required=True, description="type of user['admin','student', 'teacher']"), 
         'staff_no': fields.String(required=True, description="Type of user"),
         'admin_key': fields.String(required=True, description="type of user['admin','student', 'teacher']"),         'admin_key': fields.String(required=True, description="type of user['admin','student', 'teacher']"), 
-        'admisson_no': fields.String(required=True, description="type of user['admin','student', 'teacher']"),         'admin_key': fields.String(required=True, description="type of user['admin','student', 'teacher']") 
+        'admission_no': fields.String(required=True, description="type of user['admin','student', 'teacher']"),         'admin_key': fields.String(required=True, description="type of user['admin','student', 'teacher']") 
     }

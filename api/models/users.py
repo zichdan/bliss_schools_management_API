@@ -67,7 +67,7 @@ class Admin(User):
 class Student(User):
     __tablename__ = 'students'
     id = db.Column(db.Integer(), db.ForeignKey('users.id'), primary_key=True)
-    admission_no = db.Column(db.String(50), unique=True)
+    admission_no = db.Column(db.String(50),nullable=False, default=random.randint(1, 100), unique=True)
     courses = db.relationship('Course', secondary='student_courses')
     score = db.relationship('Score', backref="student_score", lazy=True)
 

@@ -7,13 +7,12 @@ from ..utils import db
 from ..utils import user_decorators
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, create_refresh_token, jwt_required, get_jwt_identity, get_jwt
-from .serializers import login_fields_serializer, all_users_fields_serializer, signUp_fields_serializer
+from .serializers import login_fields_serializer, all_users_fields_serializer
 from http import HTTPStatus
 
 
 auth_namespace = Namespace('auth', description="Namespace for Authentication")
 
-signup_model = auth_namespace.model('Signup', signUp_fields_serializer)
 login_model = auth_namespace.model('Login', login_fields_serializer)
 user_model = auth_namespace.model('Login', all_users_fields_serializer)
 
@@ -95,7 +94,7 @@ class GetAll(Resource):
 
     @auth_namespace.marshal_with(user_model)
     @auth_namespace.doc(
-        description="Retrieve all users"
+        description="Retrieve all users - Admins Only"
     )
     def get(self):
         """

@@ -15,7 +15,7 @@ student_update_field =  {
     'first_name': fields.String(required=True, description="Student's First Name"),
     'last_name': fields.String(required=True, description="Students's Last Name"),
     'email': fields.String(required=True, description="Student's Email"),
-    'password': fields.String(required=True, description="Student's Temporary Password"),
+    'password': fields.String(required=True, description="Student's Password"),
 }
 
 student_retrieve_field =  {
@@ -39,7 +39,8 @@ student_course_model_field = {
 grade_model_field = {
         'id': fields.Integer(description="Grade ID"),
         'course_id': fields.Integer(required=True, description="Course ID"),
-        'percent_grade': fields.Float(required=True, description="Grade in Percentage: Number Only")       
+        'student_id': fields.Float(required=True, description="Student ID") ,      
+        'score': fields.Float(required=True, description="score  in Percentage: Number Only")       
     }
 
 

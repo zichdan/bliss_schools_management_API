@@ -8,7 +8,7 @@ class Score(db.Model):
     student_id = db.Column(db.Integer(), db.ForeignKey('students.id'))
     course_id = db.Column(db.Integer(), db.ForeignKey('courses.id'))
     score = db.Column(db.Float, nullable=False)
-    grade = db.Column(db.Float(), nullable=True)
+    grade = db.Column(db.String(5), nullable=True)
     created_at = db.Column(db.DateTime() , nullable=False , default=datetime.utcnow)
 
     def __repr__(self):

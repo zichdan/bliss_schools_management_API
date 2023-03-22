@@ -7,15 +7,15 @@ from ..utils import db
 from ..utils import user_decorators
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import create_access_token, create_refresh_token, jwt_required, get_jwt_identity, get_jwt
-from .serializers import  all_users_fields_serializer, signUp_fields_serializer, all_teacher_fields_serializer
+from .serializers import  admin_fields_serializer, signUp_fields_serializer, teacher_fields_serializer
 from http import HTTPStatus
 
 
 staff_namespace = Namespace('staff', description="Namespace for staff")
 
 signup_model = staff_namespace.model('Signup', signUp_fields_serializer)
-user_model = staff_namespace.model('marshal_users', all_users_fields_serializer)
-teachers_model = staff_namespace.model('teachers', all_teacher_fields_serializer)
+admin_model = staff_namespace.model('marshal_users', admin_fields_serializer)
+teachers_model = staff_namespace.model('teachers', teacher_fields_serializer)
 
 
 
@@ -31,11 +31,11 @@ class AdminSignUp(Resource):
 
         
         # check if user already exists
-        user = User.query.filter_by(email=data.get('email')).first()
-        if not user:
+        admin = Admin.query.filter_by(email=data.get('email')).first()
+        if not admin:
             # check if admin already exists
-            admin = Admin.query.filter_by(email=data.get('email', None)).first()
-            if not admin:
+            user = User.query.filter_by(email=data.get('email', None)).first()
+            if not user:
                 #create a new administrator
                 if data.get( 'user_type')== 'admin':
                     new_admin = Admin(
@@ -58,15 +58,15 @@ class AdminSignUp(Resource):
                 return {
                         'message': 'User {} created successfully as an {}'.format(new_admin.email, new_admin.user_type)
                     }, HTTPStatus.CREATED
-            return {'message': "An administrator acccount with same email already exists"}, HTTPStatus.CONFLICT
-        return {'message': "A user with same email already exists"}, HTTPStatus.CONFLICT
+            return {'message': "An user with same email already exists"}, HTTPStatus.CONFLICT
+        return {'message': "An Administrator acccount with same email already exists"}, HTTPStatus.CONFLICT
     
     
     
 
 @staff_namespace.route('/signup/teacher')
 class TeacherSignUp(Resource):
-    @staff_namespace.expect(teachers_model)
+    @staff_namespace.expect(signup_model)
     def post(self):
         """
             Register a teacher 
@@ -74,11 +74,11 @@ class TeacherSignUp(Resource):
         data = request.get_json()
 
         # check if teacher already exists
-        user = User.query.filter_by(email=data.get('email', None)).first()
-        if not user:
+        teacher = Teacher.query.filter_by(email=data.get('email', None)).first()
+        if not teacher:
             # check if teacher already exists
-            teacher = Teacher.query.filter_by(email=data.get('email', None)).first()
-            if not teacher:
+            user = User.query.filter_by(email=data.get('email', None)).first()
+            if not user:
                 #create a new teacher
                 if data.get('user_type') == 'teacher':
                     new_teacher = Teacher(
@@ -100,7 +100,7 @@ class TeacherSignUp(Resource):
                     return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
                 return {'message': 'User {} created successfully as a {}'.format(new_teacher.email, new_teacher.user_type)
                     }, HTTPStatus.CREATED
-            return {'message': "A teacher acccount with same email already exists"
+            return {'message': "An administrator acccount with same email already exists"
                 }, HTTPStatus.CONFLICT
         return {'message': "A teacher acccount with same email already exists"
         }, HTTPStatus.CONFLICT
@@ -110,7 +110,7 @@ class TeacherSignUp(Resource):
 @staff_namespace.route('/admins')
 class GetAllAdmin(Resource):
 
-    @staff_namespace.marshal_with(user_model)
+    @staff_namespace.marshal_with(admin_model)
     @staff_namespace.doc(
         description="Retrieve all administrators  - Admins Only"
     )
@@ -127,7 +127,7 @@ class GetAllAdmin(Resource):
 @staff_namespace.route('/teachers')
 class GetAllTeacher(Resource):
 
-    @staff_namespace.marshal_with(user_model)
+    @staff_namespace.marshal_with(teachers_model)
     @staff_namespace.doc(
         description="Retrieve all teachers  - Admins Only"
     )
