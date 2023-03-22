@@ -19,47 +19,6 @@ user_model = auth_namespace.model('Login', all_users_fields_serializer)
 
 
 
-
-@auth_namespace.route('/signup/admin')
-class AdminSignUp(Resource):
-    @auth_namespace.expect(signup_model)
-    def post(self):
-        """
-            Register an Administrator 
-        """
-        data = request.get_json()
-
-        # check if admin already exists
-        admin = Admin.query.filter_by(email=data.get('email', None)).first()
-        if admin:
-            return {
-                'message': "An administrator acccount with same email already exists"
-            }, HTTPStatus.CONFLICT
-
-        #create a new administrator
-        if data.get('user_type') == 'admin':
-            new_user = Admin(
-                first_name = data.get('first_name'),
-                last_name = data.get('last_name'),
-                email = data.get('email'),
-                password_hash = generate_password_hash(data.get('password')),
-                user_type = 'admin'
-            )
-        else:
-            return {
-                'message': 'Input user_type as "admin" '
-            }, HTTPStatus.INTERNAL_SERVER_ERROR    
-        
-        try:
-            new_user.save()
-        except:
-            db.session.rollback()
-            return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
-        return {
-                'message': 'User {} created successfully as an {}'.format(new_user.email, new_user.user_type)
-            }, HTTPStatus.CREATED
-        
-
 @auth_namespace.route('/signup/student')
 class StudentSignUp(Resource):
     @auth_namespace.expect(signup_model)

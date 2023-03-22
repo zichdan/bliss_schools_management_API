@@ -1,6 +1,6 @@
 from ..utils import db
 from flask_restx import Namespace, Resource, fields
-from ..student_managemanet.serializers import (grade_model_field, grade_update_model_field,student_course_field)
+from ..student_managemanet.serializers import (grade_model_field, student_course_model_field)
 # from .students import student_namespace,student_signup_model,student_model
 
 from ..models.grades import Score
@@ -18,11 +18,11 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 student_grades_namespace = Namespace('Grade', description='Namespace for Students')
 
 
-student_course_model = student_grades_namespace.model( 'StudentCourse', student_course_field)
+student_course_model = student_grades_namespace.model( 'StudentCourse', student_course_model_field)
 
 grade_model = student_grades_namespace.model('Grade', grade_model_field)
 
-grade_update_model = student_grades_namespace.model('GradeUpdate', grade_update_model_field)
+# grade_update_model = student_grades_namespace.model('GradeUpdate', grade_update_model_field)
 
 
 
