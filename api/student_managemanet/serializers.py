@@ -1,13 +1,21 @@
 from flask_restx import fields
 
 
+student_signup_field = {
+    'email': fields.String(required=True, description='User email address'),
+    'first_name': fields.String(required=True, description="First name"),
+    'last_name': fields.String(required=True, description="Last name"),
+    'password': fields.String(required=True, description="A password"),
+    'user_type': fields.String(required=True, description="Type of user"),
+}
 
-student_signup_field =  {
+
+
+student_update_field =  {
     'first_name': fields.String(required=True, description="Student's First Name"),
     'last_name': fields.String(required=True, description="Students's Last Name"),
     'email': fields.String(required=True, description="Student's Email"),
     'password': fields.String(required=True, description="Student's Temporary Password"),
-    # 'admission_no': fields.String(required=True, description="Student's admission Number")
 }
 
 student_retrieve_field =  {

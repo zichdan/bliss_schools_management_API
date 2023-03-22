@@ -5,6 +5,8 @@
 # .DS_Store
 # .env
 
+db.bliss_schools
+
 .DS_Store
 .env
 .flaskenv

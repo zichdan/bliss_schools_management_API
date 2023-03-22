@@ -1,8 +1,9 @@
 
 from ..utils import db
-from flask_restx import Namespace, Resource, fields
-from .serializers import student_signup_field,student_retrieve_field
-from ..models.users import Student
+from flask import request
+from flask_restx import Namespace, Resource
+from .serializers import student_signup_field,student_retrieve_field,student_update_field
+from ..models.users import User, Student
 from ..models.courses import StudentCourse
 # from ..utils.decorators import admin_required
 from werkzeug.security import generate_password_hash
@@ -12,15 +13,63 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 
 student_namespace = Namespace('students', description='Namespace for Students')
 
-student_signup_model = student_namespace.model('StudentSignup',student_signup_field)
 
-student_model = student_namespace.model('Student', student_retrieve_field)
+
+student_signup_model = student_namespace.model('StudentSignUp', student_signup_field)
+student_update_model = student_namespace.model('StudentUpdate',student_update_field)
+
+student_marsharl_model = student_namespace.model('StudentMarshal', student_retrieve_field)
+
+
+
+
+@student_namespace.route('/signup')
+class StudentSignUp(Resource):
+    @student_namespace.expect(student_signup_model)
+    def post(self):
+        """
+            Register a Student 
+        """
+        data = request.get_json()
+
+        # # check if user already exists
+        # user = User.query.filter_by(email=data.get('email', None)).first()
+        # if user:
+            # check if student already exists
+        student = Student.query.filter_by(email=data.get('email', None)).first()
+        if student:
+            #create a new student
+            if data.get('user_type') == 'student':
+                new_student = Student(
+                    first_name = data.get('first_name'),
+                    last_name = data.get('last_name'),
+                    email = data.get('email'),
+                    password_hash = generate_password_hash(data.get('password')),
+                    user_type = 'student'
+                )
+            else:
+                return {
+                    'message': 'Input user_type as "student" '
+                }, HTTPStatus.INTERNAL_SERVER_ERROR    
+            
+            try:
+                new_student.save()
+            except:
+                db.session.rollback()
+                return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
+            return {'message': 'User {} created successfully as a {}'.format(new_student.email, new_student.user_type)
+                }, HTTPStatus.CREATED
+        return {'message': "A student acccount with same email already exists"}, HTTPStatus.CONFLICT
+    # return {'message': "A User with same email already exists" }, HTTPStatus.CONFLICT    
+
+
+
 
 
 @student_namespace.route('/students')
 class GetAllStudents(Resource):
 
-    @student_namespace.marshal_with(student_model)
+    @student_namespace.marshal_with(student_marsharl_model)
     @student_namespace.doc(
         description="Retrieve all students"
     )
@@ -35,37 +84,11 @@ class GetAllStudents(Resource):
         return students, HTTPStatus.OK
 
 
-# @student_namespace.route('/register')
-# class StudentRegistration(Resource):
-
-#     @student_namespace.expect(student_signup_model)
-#     @student_namespace.marshal_with(student_model)
-    # @admin_required()
-    
-    # def post(self):
-    #     """
-    #         Register a Student - Admins Only
-    #     """        
-    #     data = student_namespace.payload
-
-    #     new_student = Student(
-    #         first_name = data['first_name'],
-    #         last_name = data['last_name'],
-    #         email = data['email'],
-    #         password_hash = generate_password_hash(data['password']),
-    #         matric_no = data['matric_no'],
-    #         user_type = 'student'
-    #     )
-
-    #     new_student.save()
-
-    #     return new_student, HTTPStatus.CREATED
-
 
 @student_namespace.route('/<int:student_id>')
 class GetUpdateDeleteStudents(Resource):
     
-    @student_namespace.marshal_with(student_model)
+    @student_namespace.marshal_with(student_marsharl_model)
     @student_namespace.doc(
         description="Retrieve a student's details by ID",
         params = {
@@ -83,7 +106,7 @@ class GetUpdateDeleteStudents(Resource):
     
     
     
-    @student_namespace.expect(student_signup_model)
+    @student_namespace.expect(student_update_field)
     # @student_namespace.marshal_with(student_model)
     @student_namespace.doc(
         description="Update a student's details by ID",
