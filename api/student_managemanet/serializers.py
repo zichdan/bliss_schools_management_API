@@ -23,9 +23,8 @@ student_retrieve_field =  {
     'first_name': fields.String(required=True, description="First Name"),
     'last_name': fields.String(required=True, description="Last Name"),
     'email': fields.String(required=True, description="Student's Email"),
-    'adission_no': fields.String(required=True, description="Student's admission no"),
     'user_type': fields.String(required=True, description="Type of student"),
-    'admission_no': fields.String(required=True, description="Student's Matriculation Number")    
+    'admission_no': fields.String(required=True, description="Student's Admission Number")    
     }
 
 

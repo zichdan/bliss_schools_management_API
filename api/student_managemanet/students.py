@@ -21,8 +21,6 @@ student_update_model = student_namespace.model('StudentUpdate',student_update_fi
 student_marsharl_model = student_namespace.model('StudentMarshal', student_retrieve_field)
 
 
-
-
 @student_namespace.route('/signup')
 class StudentSignUp(Resource):
     @student_namespace.expect(student_signup_model)
@@ -32,35 +30,35 @@ class StudentSignUp(Resource):
         """
         data = request.get_json()
 
-        # # check if user already exists
-        # user = User.query.filter_by(email=data.get('email', None)).first()
-        # if user:
-            # check if student already exists
-        student = Student.query.filter_by(email=data.get('email', None)).first()
-        if student:
-            #create a new student
-            if data.get('user_type') == 'student':
-                new_student = Student(
-                    first_name = data.get('first_name'),
-                    last_name = data.get('last_name'),
-                    email = data.get('email'),
-                    password_hash = generate_password_hash(data.get('password')),
-                    user_type = 'student'
-                )
-            else:
-                return {
-                    'message': 'Input user_type as "student" '
-                }, HTTPStatus.INTERNAL_SERVER_ERROR    
-            
-            try:
-                new_student.save()
-            except:
-                db.session.rollback()
-                return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
-            return {'message': 'User {} created successfully as a {}'.format(new_student.email, new_student.user_type)
-                }, HTTPStatus.CREATED
-        return {'message': "A student acccount with same email already exists"}, HTTPStatus.CONFLICT
-    # return {'message': "A User with same email already exists" }, HTTPStatus.CONFLICT    
+        # check if user already exists
+        user = User.query.filter_by(email=data.get('email', None)).first()
+        if not user:
+                # check if student already exists
+            student = Student.query.filter_by(email=data.get('email', None)).first()
+            if not student:
+                #create a new student
+                if data.get('user_type') == 'student':
+                    new_student = Student(
+                        first_name = data.get('first_name'),
+                        last_name = data.get('last_name'),
+                        email = data.get('email'),
+                        password_hash = generate_password_hash(data.get('password')),
+                        user_type = 'student'
+                    )
+                else:
+                    return {
+                        'message': 'Input user_type as "student" '
+                    }, HTTPStatus.INTERNAL_SERVER_ERROR    
+                
+                try:
+                    new_student.save()
+                except:
+                    db.session.rollback()
+                    return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
+                return {'message': 'User {} created successfully as a {}'.format(new_student.email, new_student.user_type)
+                    }, HTTPStatus.CREATED
+            return {'message': "A student acccount with same email already exists"}, HTTPStatus.CONFLICT
+        return {'message': "A User with same email already exists" }, HTTPStatus.CONFLICT    
 
 
 
@@ -121,14 +119,14 @@ class GetUpdateDeleteStudents(Resource):
         """
         data = student_namespace.payload
         
-        # student = Student.get_by_id(student_id)
+        # check if the student exist
         student = Student.query.filter_by(id=student_id).first()
         if student:
             student.first_name = data['first_name']
             student.last_name = data['last_name']
             student.email = data['email']
             student.password_hash = generate_password_hash(data['password'])
-
+                # update student data
             try:
                 student.update()
                 
@@ -139,7 +137,7 @@ class GetUpdateDeleteStudents(Resource):
                 student_resp['email'] = student.email
                 student_resp['admission'] = student.admission_no
                 student_resp['user_type'] = student.user_type
-
+                
                 return {
                     'updated_student': student_resp,
                     'message': ' Student {} {} updated successfully'.format(student.first_name,student.last_name ) 
@@ -150,8 +148,6 @@ class GetUpdateDeleteStudents(Resource):
         return {'message': 'Student  not found'}, HTTPStatus.NOT_FOUND
 
 
-    
-    
     
     @student_namespace.doc(
         description='Delete a student by ID',

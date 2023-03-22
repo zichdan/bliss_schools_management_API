@@ -15,7 +15,7 @@ from http import HTTPStatus
 from flask_jwt_extended import jwt_required, get_jwt_identity
 
 
-student_grades_namespace = Namespace('Grade', description='Namespace for Students')
+student_grades_namespace = Namespace('Grade', description="Namespace for Student's grades")
 
 
 student_course_model = student_grades_namespace.model( 'StudentCourse', student_course_model_field)

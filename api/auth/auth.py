@@ -18,85 +18,6 @@ login_model = auth_namespace.model('Login', login_fields_serializer)
 user_model = auth_namespace.model('Login', all_users_fields_serializer)
 
 
-
-# @auth_namespace.route('/signup/student')
-# class StudentSignUp(Resource):
-#     @auth_namespace.expect(signup_model)
-#     def post(self):
-#         """
-#             Register a Student 
-#         """
-#         data = request.get_json()
-
-#         # check if student already exists
-#         student = Student.query.filter_by(email=data.get('email', None)).first()
-#         if student:
-#             return {
-#                 'message': "A student acccount with same email already exists"
-#             }, HTTPStatus.CONFLICT
-
-#         #create a new student
-#         if data.get('user_type') == 'student':
-#             new_user = Student(
-#                 first_name = data.get('first_name'),
-#                 last_name = data.get('last_name'),
-#                 email = data.get('email'),
-#                 password_hash = generate_password_hash(data.get('password')),
-#                 user_type = 'student'
-#             )
-#         else:
-#             return {
-#                 'message': 'Input user_type as "student" '
-#             }, HTTPStatus.INTERNAL_SERVER_ERROR    
-        
-#         try:
-#             new_user.save()
-#         except:
-#             db.session.rollback()
-#             return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
-#         return {
-#                 'message': 'User {} created successfully as a {}'.format(new_user.email, new_user.user_type)
-#             }, HTTPStatus.CREATED
-
-
-# @auth_namespace.route('/signup/teacher')
-# class TeacherSignUp(Resource):
-#     @auth_namespace.expect(signup_model)
-#     def post(self):
-#         """
-#             Register a teacher 
-#         """
-#         data = request.get_json()
-
-#         # check if teacher already exists
-#         teacher = Teacher.query.filter_by(email=data.get('email', None)).first()
-#         if teacher:
-#             return {
-#                 'message': "A teacher acccount with same email already exists"
-#             }, HTTPStatus.CONFLICT
-
-#         #create a new teacher
-#         if data.get('user_type') == 'teacher':
-#             new_user = Teacher(
-#                 first_name = data.get('first_name'),
-#                 last_name = data.get('last_name'),
-#                 email = data.get('email'),
-#                 password_hash = generate_password_hash(data.get('password')),
-#                 user_type = 'teacher'
-#             )
-#         else:
-#             return {
-#                 'message': 'Input user_type as "teacher" '
-#             }, HTTPStatus.INTERNAL_SERVER_ERROR    
-        
-#         try:
-#             new_user.save()
-#         except:
-#             db.session.rollback()
-#             return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
-#         return {
-#                 'message': 'User {} created successfully as a {}'.format(new_user.email, new_user.user_type)
-#             }, HTTPStatus.CREATED
             
             
 @auth_namespace.route('/login')
@@ -180,7 +101,7 @@ class GetAll(Resource):
         """
             Retrieve all Users
         """
-        users = Student.query.all()
+        users = User.query.all()
 
         return users, HTTPStatus.OK
 

@@ -8,10 +8,10 @@ from .utils import db
 from .utils.blocklist import BLOCKLIST
 
 from .course_management.course import course_namespace
-from .auth.admin import auth_namespace
+from .auth.auth import auth_namespace
 from .student_managemanet.students import student_namespace
 from .grades_management.grade import student_grades_namespace
-from .staff_management.admin import admin_namespace
+from .staff_management.staff import staff_namespace
 
 from .models.users import User, Admin, Student, Teacher
 from .models.courses import Course, StudentCourse
@@ -126,7 +126,7 @@ def create_app(config=config_dict['dev']):
 
 
     api.add_namespace(auth_namespace, path='/auth')
-    api.add_namespace(admin_namespace, path='/admin')
+    api.add_namespace(staff_namespace, path='/admin')
     api.add_namespace(course_namespace, path='/courses')
     api.add_namespace(student_namespace, path='/students')
     api.add_namespace(student_grades_namespace, path='/grades')
