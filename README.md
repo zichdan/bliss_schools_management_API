@@ -16,14 +16,14 @@
 
 <!-- Project Name -->
 <div align="center">
-  <h1>Student Management API</h1>
+  <h1>Bliss_schools_management_API</h1>
 </div>
 
 <div>
   <p align="center">
     <a href=" https://github.com/zichdan/bliss_schools_management_API#readme"><strong>Explore the Documentation »</strong></a>
     <br />
-    <a href=" https://github.com/zichdan/bliss_schools_management_API/blob/main/images/student_api_full_page.png">View Demo</a>
+    <a href=" https://github.com/zichdan/bliss_schools_management_API/blob/main/image/bliss_schools_management_API.png">View Demo</a>
     ·
     <a href=" https://github.com/zichdan/bliss_schools_management_API/issues">Report Bug</a>
     ·
@@ -38,7 +38,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-student-api">About Student Management API</a>
+      <a href="#bliss-schools-management-API">bliss_schools_management_API</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
@@ -175,7 +175,7 @@ git clone https://github.com/zichdan/bliss_schools_management_API.git
 ```console
 cd bliss_schools_management_API
 ```
-     OR If Renamed 
+ OR If Renamed 
 ```console
 cd "name of your folder"    
 ```
@@ -230,7 +230,7 @@ python runserver.py
 
 <br />
 
-[![bliss_schools_management_API][bliss-schools-management-API]](https://github.com/zichdan/bliss_schools_management_API/blob/main/images/student_api_full_page.png)
+[![bliss_schools_management_API][bliss-schools-management-API]]( https://github.com/zichdan/bliss_schools_management_API/blob/main/image/bliss_schools_management_API.png)
 
 <br/>
 
@@ -241,7 +241,7 @@ python runserver.py
 <!-- License -->
 ## License
 
-Distributed under the MIT License. See <a href="https://github.com/zichdan/blob/main/LICENSE">LICENSE</a> for more information.
+Distributed under the MIT License. See <a href="https://github.com/zichdan/bliss_schools_management_API/blob/main/LICENSE">LICENSE</a> for more information.
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -285,7 +285,7 @@ This project was made possible by:
 [license-url]: https://github.com/zichdan/bliss_schools_management_API/blob/main/LICENSE
 [twitter-shield]: https://img.shields.io/badge/-@Zichdan_-1ca0f1?style=for-the-badge&logo=twitter&logoColor=white&link=https://twitter.com/Zichdan_
 [twitter-url]: https://twitter.com/Zichdan_
-[student-management-api-screenshot]: https://github.com/zichdan/bliss_schools_management_API/blob/main/images/student_api_full_page.png
+[student-management-api-screenshot]: https://github.com/zichdan/bliss_schools_management_API/blob/main/image/bliss_schools_management_API.png
 [python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [flask]: https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white
 [sqlite]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
