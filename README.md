@@ -66,7 +66,7 @@ CRUD operations can be carried out on the student data and the courses data, wit
 
 A Student account have limited access to the app, as a student can only change their profile details and view their profile, courses, grades and GPA.
 
-This Student Management API was built with Python's Flask-RESTX by <a href="https://www.github.com/Oluwatemmy">Ajayi Oluwaseyi</a> during Backend Engineering live classes at <a href="https://altschoolafrica.com/schools/engineering">AltSchool Africa</a>. This was built as my third semester final capstone project in <b>AltSchool Africa</b>. 
+This Student Management API was built with Python's Flask-RESTX by <a href="https://github.com/zichdan">OKORIE DANIEL EZICHI</a> during Backend Engineering third semester exam at <a href="https://altschoolafrica.com/schools/engineering">AltSchool Africa</a>. This was built as my third semester project in <b>AltSchool Africa</b>. 
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -177,7 +177,7 @@ git clone https://github.com/zichdan/bliss_schools_management_API.git
 ```console
 cd bliss_schools_management_API
      OR
-cd "your folder"    # if renamed
+cd "your folder"    *//if renamed *//
 ```
 ### To create a virtual environment called 'env' 
 
