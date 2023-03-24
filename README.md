@@ -21,13 +21,13 @@
 
 <div>
   <p align="center">
-    <a href=" https://github.com/zichdan/bliss_schools_management_API#readme"><strong>Explore the Documentation »</strong></a>
+    <a href="https://github.com/zichdan/bliss_schools_management_API#readme"><strong>Explore the Documentation »</strong></a>
     <br />
-    <a href=" https://github.com/zichdan/bliss_schools_management_API/blob/main/image/bliss_schools_management_API.png">View Demo</a>
+    <a href="https://github.com/zichdan/bliss_schools_management_API/blob/main/image/bliss_schools_management_API.png">View Demo</a>
     ·
-    <a href=" https://github.com/zichdan/bliss_schools_management_API/issues">Report Bug</a>
+    <a href="https://github.com/zichdan/bliss_schools_management_API/issues">Report Bug</a>
     ·
-    <a href=" https://github.com/zichdan/bliss_schools_management_API/issues">Request Feature</a>
+    <a href="https://github.com/zichdan/bliss_schools_management_API/issues">Request Feature</a>
   </p>
 </div>
 
@@ -38,7 +38,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#bliss-schools-management-API">bliss_schools_management_API</a>
+      <a href="#about-bliss-schools-management-API">About Bliss Schools Management API</a>
       <ul>
         <li><a href="#built-with">Built With</a></li>
       </ul>
