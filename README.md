@@ -148,8 +148,6 @@ To explore and use this API, follow these steps:
 
 9. When you're done, click 'Authorize' at top right again to then 'Logout'. Also, head on to the **'/auth/logout'** route to log the user out and revoke the access token.
 
-<!-- **Note:** Any registered user can request to reset their password through the **'/auth/password-reset-request'** route and the link to reset their password will be sent to the user's mail.
-<!--     Copy the token from the link that was sent to your mail and paste it in the token field in the **'/auth/password-reset/<token>'** route. Then you can go on to change your password. --> -->
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -176,19 +174,25 @@ git clone https://github.com/zichdan/bliss_schools_management_API.git
 
 ```console
 cd bliss_schools_management_API
-     OR
-cd "your folder"    *//if renamed *//
+```
+     OR If Renamed 
+```console
+cd "name of your folder"    
 ```
 ### To create a virtual environment called 'env' 
 
 ```console
-python -m venv env                  #creating virtual environment for all Operating Systems
+python -m venv env                 
 ```
 ### Activating Virtual environments
 
+ For  Unix or MacOS
 ```console
-source env/bin/activate             # For  Unix or MacOS
-source env/scripts/activate         # For Windows
+source env/bin/activate    
+```
+ For Windows
+```console
+source env/scripts/activate         
 ```
 
 <!-- **Note:** Open the requirement.txt file and remove the uwsgi package which is also the last package. It is likely for you to run into an error if you don't remove it because this is the dyno used to run the app on heroku and will not work on your local machine. After doing this, you can go ahead and install the rest with this command.  -->
@@ -202,16 +206,16 @@ pip install -r requirement.txt
 ### To create your database locally.
 
 ```console
-flask shell     # press enter
-db              # press enter
-User            # press enter
-Admin           # press enter
-Student         # press enter
-Course          # press enter
-StudentCourse   # press enter
-Score           # press enter
-db.create_all() # press enter
-exit()          # press enter
+flask shell          # press enter
+db                   # press enter
+User                 # press enter
+Admin                # press enter
+Student              # press enter
+Course               # press enter
+StudentCourse        # press enter
+Score                # press enter
+db.create_all()      # press enter
+exit()               # press enter
 ```
 
 ### Finally, To run the application.
@@ -219,54 +223,14 @@ exit()          # press enter
 ```console
 python runserver.py
 ```
-
-<!-- # Endpoints for the Student Management API
-
-<div style="margin-top:8px; margin-bottom:10px; font-size:20px; font-weight:bold;">Auth EndPoint</div>
-<!-- Tables for routing in each models -->
-
-| ROUTE                          | METHOD | DESCRIPTION                                   | AUTHORIZATION          | USER TYPE |
-|--------------------------------| ------ |-----------------------------------------------|------------------------|-----------|
-| `/auth/signup`                 | _POST_ | Creation of students and admin account        | `None`                 | Any       |
-| `/auth/login`                  | _POST_ | Creation of JWT Tokens for students and admin | `None`                 | Any       |
-| `/auth/refresh`                | _POST_ | Creation of Access Tokens for all account     | `Bearer Refresh-Token` | Any       |
-| `/auth/signup/lecturer`        | _GET_  | Creation of lecturers account                 | `Bearer Access-Token`  | Admin     |
-| `/auth/logout`                 | _POST_ | LogOut User and revoke access/refresh tokens  | `Bearer Access-Token`  | Any       |
-
-<div style="margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:bold;">Student EndPoint</div>
-
-| ROUTE                                       | METHOD   | DESCRIPTION                                          | AUTHORIZATION         | USER TYPE         |
-|---------------------------------------------|----------|------------------------------------------------------| --------------------- |-------------------|
-| `/students/`                                | _GET_    | Get all Students                                     | `Bearer Access-Token` | Admin             |
-| `/students/studentcourse/score/{course_id}` | _PUT_    | Update a student course score by the course lecturer | `Bearer Access-Token` | Lecturer          |
-| `/students/{student_id}`                    | _GET_    | Get a student by ID                                  | `Bearer Access-Token` | Admin or Lecturer |
-| `/students/{student_id}`                    | _DELETE_ | Delete a student by ID                               | `Bearer Access-Token` | Admin             |
-| `/students/{student_id}`                    | _PUT_    | Update a student by ID                               | `Bearer Access-Token` | Admin or Lecturer |
-| `/students/{student_id}/courses`            | _GET_    | Get a student courses by ID                          | `Bearer Access-Token` | Admin or Lecturer |
-| `/students/{student_id}/courses/grades`     | _GET_    | Get a student all courses and grades by ID           | `Bearer Access-Token` | Admin or Lecturer |
-| `/students/{student_id}/{course_id}/gpa`    | _GET_    | Calculate a Student Course GPA                       | `Bearer Access-Token` | Admin or Lecturer |
-
-<div style="margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:bold;">Course EndPoint</div>
-
-| ROUTE                            | METHOD   | DESCRIPTION                              | AUTHORIZATION         | USER TYPE         |
-|----------------------------------|----------|------------------------------------------| --------------------- |-------------------|
-| `/courses/`                      | _GET_    | List all courses available               | `Bearer Access-Token` | Any               |
-| `/courses/`                      | _POST_   | Create a new course                      | `Bearer Access-Token` | Admin             |
-| `/courses/addcourse/{course_id}` | _DELETE_ | Delete a student from a course           | `Bearer Access-Token` | Lecturer          |
-| `/courses/addcourse/{course_id}` | _POST_   | Register a student to a course           | `Bearer Access-Token` | Lecturer          |
-| `/courses/{course_id}`           | _GET_    | Get a course by ID                       | `Bearer Access-Token` | Any               |
-| `/courses/{course_id}`           | _DELETE_ | Delete a course by ID                    | `Bearer Access-Token` | Admin             |
-| `/courses/{course_id}/students`  | _GET_    | List all registered students in a course | `Bearer Access-Token` | Admin or lecturer |
-
-
---- -->
+---
 
 <!-- Sample Screenshot -->
 ## Sample
 
 <br />
 
-[![Student Management API Screenshot][student-management-api-screenshot]](https://github.com/Oluwatemmy/Student-Management-API/blob/main/images/student_api_full_page.png)
+[![bliss_schools_management_API][bliss-schools-management-API]](https://github.com/zichdan/bliss_schools_management_API/blob/main/images/student_api_full_page.png)
 
 <br/>
 
@@ -288,9 +252,9 @@ Distributed under the MIT License. See <a href="https://github.com/zichdan/blob/
 
 You can contact me with my social media handles:
 
-[LinkedIn](https://www.linkedin.com/in/oluwatemmy15) | [Twitter](https://twitter.com/Zichdan_) | [Github](https://github.com/Oluwatemmy) | Email: oluwaseyitemitope456@gmail.com
+[LinkedIn](https://www.linkedin.com/in/daniel-ezichi/) | [Twitter](https://twitter.com/Zichdan_) | [Github](https://github.com/zichdan) | Email: zichdan1999@gmail.com
 
-Project Link: [Student Management API](https://github.com/Oluwatemmy/Student-Management-API)
+Project Link: [bliss_schools_management_API](https://github.com/zichdan/bliss_schools_management_API)
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -319,7 +283,7 @@ This project was made possible by:
 [issues-url]: https://github.com/zichdan/bliss_schools_management_API/issues
 [license-shield]: https://img.shields.io/github/license/zichdan/bliss_schools_management_API.svg?style=for-the-badge
 [license-url]: https://github.com/zichdan/bliss_schools_management_API/blob/main/LICENSE
-[twitter-shield]: https://img.shields.io/badge/-@Oluwatemmy15-1ca0f1?style=for-the-badge&logo=twitter&logoColor=white&link=https://twitter.com/ze_austin
+[twitter-shield]: https://img.shields.io/badge/-@Zichdan_-1ca0f1?style=for-the-badge&logo=twitter&logoColor=white&link=https://twitter.com/Zichdan_
 [twitter-url]: https://twitter.com/Zichdan_
 [student-management-api-screenshot]: https://github.com/zichdan/bliss_schools_management_API/blob/main/images/student_api_full_page.png
 [python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
