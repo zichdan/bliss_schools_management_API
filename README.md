@@ -21,13 +21,13 @@
 
 <div>
   <p align="center">
-    <a href="https://github.com/Oluwatemmy/Student-Management-API#readme"><strong>Explore the Documentation »</strong></a>
+    <a href=" https://github.com/zichdan/bliss_schools_management_API#readme"><strong>Explore the Documentation »</strong></a>
     <br />
-    <a href="https://github.com/Oluwatemmy/Student-Management-API/blob/main/images/student_api_full_page.png">View Demo</a>
+    <a href=" https://github.com/zichdan/bliss_schools_management_API/blob/main/images/student_api_full_page.png">View Demo</a>
     ·
-    <a href="https://github.com/Oluwatemmy/Student-Management-API/issues">Report Bug</a>
+    <a href=" https://github.com/zichdan/bliss_schools_management_API/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Oluwatemmy/Student-Management-API/issues">Request Feature</a>
+    <a href=" https://github.com/zichdan/bliss_schools_management_API/issues">Request Feature</a>
   </p>
 </div>
 
@@ -46,7 +46,7 @@
     <li><a href="#knowledge-acquired">Knowledge Acquired</a></li>
     <li><a href="#project-scope">Project Scope</a></li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#installaton">Installation</a></li>
+    <li><a href="#Installation-On-Local-Machine">Installation On Local Machine</a></li>
     <li><a href="#sample">Sample</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -220,7 +220,7 @@ exit()          # press enter
 python runserver.py
 ```
 
-# Endpoints for the Student Management API
+<!-- # Endpoints for the Student Management API
 
 <div style="margin-top:8px; margin-bottom:10px; font-size:20px; font-weight:bold;">Auth EndPoint</div>
 <!-- Tables for routing in each models -->
@@ -232,8 +232,6 @@ python runserver.py
 | `/auth/refresh`                | _POST_ | Creation of Access Tokens for all account     | `Bearer Refresh-Token` | Any       |
 | `/auth/signup/lecturer`        | _GET_  | Creation of lecturers account                 | `Bearer Access-Token`  | Admin     |
 | `/auth/logout`                 | _POST_ | LogOut User and revoke access/refresh tokens  | `Bearer Access-Token`  | Any       |
-| `/auth/password-reset-request` | _POST_ | Request for password reset                    | `None`                 | Any       |
-| `/auth/password-reset/{token}` | _POST_ | Reset password                                | `None`                 | Any       |
 
 <div style="margin-top:20px; margin-bottom:10px; font-size:20px; font-weight:bold;">Student EndPoint</div>
 
@@ -261,7 +259,7 @@ python runserver.py
 | `/courses/{course_id}/students`  | _GET_    | List all registered students in a course | `Bearer Access-Token` | Admin or lecturer |
 
 
----
+--- -->
 
 <!-- Sample Screenshot -->
 ## Sample
@@ -279,7 +277,7 @@ python runserver.py
 <!-- License -->
 ## License
 
-Distributed under the MIT License. See <a href="https://github.com/zichdan/bliss_schools_management_API/blob/main/LICENSE">LICENSE</a> for more information.
+Distributed under the MIT License. See <a href="https://github.com/zichdan/blob/main/LICENSE">LICENSE</a> for more information.
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -290,7 +288,7 @@ Distributed under the MIT License. See <a href="https://github.com/zichdan/bliss
 
 You can contact me with my social media handles:
 
-[LinkedIn](https://www.linkedin.com/in/oluwatemmy15) | [Twitter](https://twitter.com/Oluwatemmy15) | [Github](https://github.com/Oluwatemmy) | Email: oluwaseyitemitope456@gmail.com
+[LinkedIn](https://www.linkedin.com/in/oluwatemmy15) | [Twitter](https://twitter.com/Zichdan_) | [Github](https://github.com/Oluwatemmy) | Email: oluwaseyitemitope456@gmail.com
 
 Project Link: [Student Management API](https://github.com/Oluwatemmy/Student-Management-API)
 
@@ -311,19 +309,19 @@ This project was made possible by:
 ---
 
 <!-- Markdown Links & Images -->
-[contributors-shield]: https://img.shields.io/github/contributors/Oluwatemmy/Student-Management-API.svg?style=for-the-badge
-[contributors-url]: https://github.com/Oluwatemmy/Student-Management-API/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Oluwatemmy/Student-Management-API.svg?style=for-the-badge
-[forks-url]: https://github.com/Oluwatemmy/Student-Management-API/network/members
-[stars-shield]: https://img.shields.io/github/stars/Oluwatemmy/Student-Management-API.svg?style=for-the-badge
-[stars-url]: https://github.com/Oluwatemmy/Student-Management-API/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Oluwatemmy/Student-Management-API.svg?style=for-the-badge
-[issues-url]: https://github.com/Oluwatemmy/Student-Management-API/issues
-[license-shield]: https://img.shields.io/github/license/Oluwatemmy/Student-Management-API.svg?style=for-the-badge
-[license-url]: https://github.com/Oluwatemmy/Student-Management-API/blob/main/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/zichdan/bliss_schools_management_API.svg?style=for-the-badge
+[contributors-url]: https://github.com/zichdan/bliss_schools_management_API/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/zichdan/bliss_schools_management_API.svg?style=for-the-badge
+[forks-url]: https://github.com/zichdan/bliss_schools_management_API/network/members
+[stars-shield]: https://img.shields.io/github/stars/zichdan/bliss_schools_management_API.svg?style=for-the-badge
+[stars-url]: https://github.com/zichdan/bliss_schools_management_API/stargazers
+[issues-shield]: https://img.shields.io/github/issues/zichdan/bliss_schools_management_API.svg?style=for-the-badge
+[issues-url]: https://github.com/zichdan/bliss_schools_management_API/issues
+[license-shield]: https://img.shields.io/github/license/zichdan/bliss_schools_management_API.svg?style=for-the-badge
+[license-url]: https://github.com/zichdan/bliss_schools_management_API/blob/main/LICENSE
 [twitter-shield]: https://img.shields.io/badge/-@Oluwatemmy15-1ca0f1?style=for-the-badge&logo=twitter&logoColor=white&link=https://twitter.com/ze_austin
-[twitter-url]: https://twitter.com/Oluwatemmy15
-[student-management-api-screenshot]: https://github.com/Oluwatemmy/Student-Management-API/blob/main/images/student_api_full_page.png
+[twitter-url]: https://twitter.com/Zichdan_
+[student-management-api-screenshot]: https://github.com/zichdan/bliss_schools_management_API/blob/main/images/student_api_full_page.png
 [python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [flask]: https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white
 [sqlite]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
