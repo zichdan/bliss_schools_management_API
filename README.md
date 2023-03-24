@@ -230,7 +230,7 @@ python runserver.py
 
 <br />
 
-[![bliss_schools_management_API][bliss-schools-management-API]]( https://github.com/zichdan/bliss_schools_management_API/blob/main/image/bliss_schools_management_API.png)
+[![bliss schools management API][bliss-schools-screenshot]]( https://github.com/zichdan/bliss_schools_management_API/blob/main/image/bliss_schools_management_API.png)
 
 <br/>
 
@@ -285,7 +285,7 @@ This project was made possible by:
 [license-url]: https://github.com/zichdan/bliss_schools_management_API/blob/main/LICENSE
 [twitter-shield]: https://img.shields.io/badge/-@Zichdan_-1ca0f1?style=for-the-badge&logo=twitter&logoColor=white&link=https://twitter.com/Zichdan_
 [twitter-url]: https://twitter.com/Zichdan_
-[student-management-api-screenshot]: https://github.com/zichdan/bliss_schools_management_API/blob/main/image/bliss_schools_management_API.png
+[bliss-schools-screenshot]: https://github.com/zichdan/bliss_schools_management_API/blob/main/image/bliss_schools_management_API.png
 [python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
 [flask]: https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white
 [sqlite]: https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white
