@@ -58,9 +58,9 @@
 ---
 
 <!-- About the Project -->
-## About Student Management API
+## About Bliss Schools Management API
 
-Student Management API does the main function of a school and explains how it works. It enables the school to create an admin account. It allows the registration of students and lecturers. Also, the API allows the school admin to create courses and handling the grading system for the student.
+Bliss Schools Management API does the main function of a school and explains how it works. It enables the school to create an admin account. It allows the registration of students and lecturers. Also, the API allows the school admin to create courses and handling the grading system for the student.
 
 CRUD operations can be carried out on the student data and the courses data, with an easy-to-use Swagger UI setup for testing and integration with the front end.
 
