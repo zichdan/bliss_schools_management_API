@@ -33,8 +33,8 @@ class AdminSignUp(Resource):
         # check if user already exists
         admin = Admin.query.filter_by(email=data.get('email')).first()
         if not admin:
-            # check if admin already exists
-            user = User.query.filter_by(email=data.get('email', None)).first()
+            # check if user already exists
+            user = User.query.filter_by(email=data.get('email')).first()
             if not user:
                 #create a new administrator
                 if data.get( 'user_type')== 'admin':
@@ -76,10 +76,10 @@ class TeacherSignUp(Resource):
         data = request.get_json()
 
         # check if teacher already exists
-        teacher = Teacher.query.filter_by(email=data.get('email', None)).first()
+        teacher = Teacher.query.filter_by(email=data.get('email')).first()
         if not teacher:
-            # check if teacher already exists
-            user = User.query.filter_by(email=data.get('email', None)).first()
+            # check if user already exists
+            user = User.query.filter_by(email=data.get('email')).first()
             if not user:
                 #create a new teacher
                 if data.get('user_type') == 'teacher':
@@ -102,7 +102,7 @@ class TeacherSignUp(Resource):
                     return {'message': 'An error occurred while saving user'}, HTTPStatus.INTERNAL_SERVER_ERROR
                 return {'message': 'User {} created successfully as a {}'.format(new_teacher.email, new_teacher.user_type)
                     }, HTTPStatus.CREATED
-            return {'message': "An administrator acccount with same email already exists"
+            return {'message': "A user acccount with same email already exists"
                 }, HTTPStatus.CONFLICT
         return {'message': "A teacher acccount with same email already exists"
         }, HTTPStatus.CONFLICT

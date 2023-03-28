@@ -126,7 +126,7 @@ def create_app(config=config_dict['dev']):
 
 
     api.add_namespace(auth_namespace, path='/auth')
-    api.add_namespace(staff_namespace, path='/admin')
+    api.add_namespace(staff_namespace, path='/staff')
     api.add_namespace(course_namespace, path='/courses')
     api.add_namespace(student_namespace, path='/students')
     api.add_namespace(student_grades_namespace, path='/grades')
