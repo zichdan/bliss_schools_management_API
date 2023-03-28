@@ -24,7 +24,7 @@ class TestConfig(Config):
     TESTING = True
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite://'
+    SQLALCHEMY_DATABASE_URI = "sqlite://"
 
 class ProdConfig(Config):
     SQLALCHEMY_DATABASE_URI = uri
