@@ -92,7 +92,6 @@ Creating this API helped me learn and practice:
 * User Authentication and Authorization
 * Unit Testing using pytest and Insomnia
 * Swagger Documentation
-* 
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
